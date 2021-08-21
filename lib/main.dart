@@ -53,7 +53,7 @@ class _MyFirestorePageState extends State<MyFirestorePage> {
                 await FirebaseFirestore.instance.collection('users').doc('id_abc').collection('orders').doc('id_123').set({'price':600, 'date':'9/13'});
               },
             ),
-             ElevatedButton(
+            ElevatedButton(
               child: Text('ドキュメント一覧取得'),
               onPressed: () async {
                 // コレクション内のドキュメント一覧を取得
@@ -87,6 +87,14 @@ class _MyFirestorePageState extends State<MyFirestorePage> {
             ),
             // ドキュメントの情報を表示
             ListTile(title: Text(orderDocumentInfo)),
+            ElevatedButton(
+              child: Text('ドキュメント更新'),
+              onPressed: () async {
+                // ドキュメント更新
+                await FirebaseFirestore.instance.collection('users').doc('id_abc').update({'age': 41});
+              },
+            ),
+            
           ],
         ),
       ),
